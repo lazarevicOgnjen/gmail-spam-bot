@@ -7,7 +7,7 @@ from email import encoders
 sender   = os.getenv("MAIL_USER")
 password = os.getenv("MAIL_PASS")
 receiver = os.getenv("MAIL_TO")
-file_path = "file.txt"
+file_path = "grass.png"
 
 msg = MIMEMultipart()
 msg["From"]    = sender
