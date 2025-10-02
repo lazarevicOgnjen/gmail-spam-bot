@@ -24,14 +24,12 @@ jobs:
           sender   = os.getenv("MAIL_USER")
           password = os.getenv("MAIL_PASS")
           receiver = os.getenv("MAIL_TO")
-          subject  = os.getenv("MAIL_SUBJECT")
           file_path = "grass.png"
 
           msg = MIMEMultipart()
           msg["From"]    = sender
           msg["To"]      = receiver
-          msg["Subject"] = subject
-          msg.attach(MIMEText("Your header text here", "plain"))
+          msg["Subject"] = os.getenv("MAIL_SUBJECT")
 
           with open(file_path, "rb") as f:
               part = MIMEBase("application", "octet-stream")
