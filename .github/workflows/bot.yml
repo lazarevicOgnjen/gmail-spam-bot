@@ -22,7 +22,7 @@ jobs:
           sender   = os.getenv("MAIL_USER")
           password = os.getenv("MAIL_PASS")
           receiver = os.getenv("MAIL_TO")
-          file_path = "grass.png"
+          file_path = "photo1.png"
           subject = os.getenv("MAIL_SUBJECT")
 
           for i in range(1, 21):
