@@ -41,7 +41,7 @@ jobs:
               with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
                   server.login(sender, password)
                   server.sendmail(sender, receiver, msg.as_string())
-              if i < 10:
+              if i < 20:
                   time.sleep(2)
           EOF
       - run: python send.py
