@@ -25,11 +25,11 @@ jobs:
           file_path = "photo1.png"
           subject = os.getenv("MAIL_SUBJECT")
 
-          for i in range(1, 3):
+          for i in range(1, 6):
               msg = MIMEMultipart()
               msg["From"]    = sender
               msg["To"]      = receiver
-              msg["Subject"] = f"{subject} ({i}/20)"
+              msg["Subject"] = f"{subject} ({i}/5)"
 
               with open(file_path, "rb") as f:
                   part = MIMEBase("application", "octet-stream")
@@ -41,8 +41,8 @@ jobs:
               with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
                   server.login(sender, password)
                   server.sendmail(sender, receiver, msg.as_string())
-              if i < 2:
-                  time.sleep(2)
+              if i < 5:
+                  time.sleep(1)
           EOF
       - run: python send.py
         env:
